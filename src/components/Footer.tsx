@@ -2,7 +2,7 @@ import Link from "next/link";
 import { InstagramLogo, SpotifyLogo } from "@phosphor-icons/react/dist/ssr";
 import { getSite } from "@/lib/content";
 import { Logo } from "./Logo";
-import { NAV } from "./Nav";
+import { NAV } from "@/lib/nav";
 
 export function Footer() {
   const s = getSite();

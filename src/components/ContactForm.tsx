@@ -1,11 +1,12 @@
-// Plain HTML form posting to a Web3Forms/Formspree endpoint (set in content/site.json).
-// No endpoint configured -> falls back to mailto so the page still works in preview.
-export function ContactForm({ endpoint, artists, preselect }: { endpoint: string; artists: { slug: string; name: string }[]; preselect?: string }) {
-  const field = "w-full border border-line bg-night-2 px-4 py-3 text-paper placeholder:text-muted focus:border-accent focus:outline-none";
+import { submitContact } from "@/app/contact/actions";
+
+// Native form + server action: works without client JS.
+export function ContactForm({ artists, preselect }: { artists: { slug: string; name: string }[]; preselect?: string }) {
+  const field = "w-full border border-line bg-night-2 px-4 py-3 text-paper placeholder:text-muted focus:border-accent focus:outline-none transition-colors";
   const label = "mb-2 block text-sm font-semibold";
   return (
-    <form action={endpoint || "mailto:info@harvestmoonevents.eu"} method="POST" className="grid gap-5 md:grid-cols-2">
-      <input type="hidden" name="subject" value="Nueva solicitud de presupuesto · harvestmoonevents.eu" />
+    <form action={submitContact} className="grid gap-5 md:grid-cols-2">
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <div>
         <label htmlFor="name" className={label}>Nombre</label>
         <input id="name" name="name" required autoComplete="name" className={field} />
@@ -37,7 +38,7 @@ export function ContactForm({ endpoint, artists, preselect }: { endpoint: string
         <label htmlFor="dj" className={label}>DJ (opcional)</label>
         <select id="dj" name="dj" className={field} defaultValue={preselect ?? ""}>
           <option value="">Sin preferencia</option>
-          {artists.map((a) => <option key={a.slug} value={a.slug}>{a.name}</option>)}
+          {artists.map((a) => <option key={a.slug} value={a.name}>{a.name}</option>)}
         </select>
       </div>
       <div className="md:col-span-2">

@@ -26,6 +26,17 @@ export type Post = {
   html: string;
 };
 
+export type Playlist = {
+  slug: string;
+  title: string;
+  spotify: string;
+  styles: string[];
+  featured: boolean;
+  order: number;
+};
+
+export type Testimonial = { slug: string; quote: string; name: string; event: string; order: number };
+
 export type Page<T = Record<string, unknown>> = T & {
   title: string;
   subtitle?: string;
@@ -41,7 +52,6 @@ export type Site = {
   address: string;
   instagram: string;
   spotify: string;
-  formEndpoint: string;
 };
 
 function read(file: string) {
@@ -80,6 +90,24 @@ export function getPosts(): Post[] {
 
 export function getPost(slug: string) {
   return getPosts().find((p) => p.slug === slug);
+}
+
+export function getPlaylists(): Playlist[] {
+  return dir("playlists")
+    .map(({ slug, data }) => ({ slug, ...(data as Omit<Playlist, "slug">), styles: (data.styles as string[]) ?? [] }))
+    .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+}
+
+// Playlists sharing at least one style with the artist's genres (case-insensitive).
+export function getPlaylistsFor(artist: Artist) {
+  const genres = new Set(artist.genres.map((g) => g.toLowerCase()));
+  return getPlaylists().filter((p) => p.styles.some((s) => genres.has(s.toLowerCase())));
+}
+
+export function getTestimonials(): Testimonial[] {
+  return dir("testimonios")
+    .map(({ slug, data }) => ({ slug, ...(data as Omit<Testimonial, "slug">) }))
+    .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 }
 
 export function getPage<T = Record<string, unknown>>(name: string): Page<T> {

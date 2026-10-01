@@ -4,7 +4,7 @@ import type { Artist } from "@/lib/content";
 
 export function ArtistCard({ a, priority = false }: { a: Artist; priority?: boolean }) {
   return (
-    <Link href={`/artistas/${a.slug}`} className="group flex flex-col gap-3.5">
+    <Link href={`/artistas/${a.slug}`} className="group reveal flex flex-col gap-3.5">
       <div className="relative aspect-[4/5] overflow-hidden bg-night-2">
         <Image
           src={a.photo}

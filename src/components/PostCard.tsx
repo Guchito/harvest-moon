@@ -5,7 +5,7 @@ import { formatDate, type Post } from "@/lib/content";
 // Rendered on the light "paper" blog surfaces.
 export function PostCard({ p }: { p: Post }) {
   return (
-    <Link href={`/blog-de-novedades/${p.slug}`} className="group block">
+    <Link href={`/blog-de-novedades/${p.slug}`} className="group reveal block">
       <div className="relative aspect-video overflow-hidden bg-night/5">
         <Image src={p.cover} alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
       </div>

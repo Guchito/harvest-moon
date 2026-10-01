@@ -46,65 +46,38 @@ content:
       - { name: excerpt, label: Resumen, type: text, description: "Una o dos frases. Aparece en la lista del blog y en la portada." }
       - { name: body, label: Texto, type: rich-text }
 
-  - name: inicio
-    label: "Página: Inicio"
-    type: file
-    path: content/pages/inicio.md
+  - name: playlists
+    label: Playlists
+    type: collection
+    path: content/playlists
+    filename: "{primary}.md"
+    view:
+      primary: title
+      fields: [title, styles, featured, order]
+      sort: [order]
+      default: { sort: order, order: asc }
     fields:
-      - { name: title, label: Titular, type: string }
-      - { name: subtitle, label: Subtítulo, type: text }
-      - { name: image, label: Foto principal, type: image }
-      - name: services
-        label: Tipos de evento
-        type: object
-        list: true
-        fields:
-          - { name: title, label: Nombre, type: string }
-          - { name: text, label: Descripción corta, type: string }
-      - { name: body, label: Texto de bienvenida, type: rich-text }
+      - { name: title, label: Nombre, type: string, required: true }
+      - { name: spotify, label: Enlace de Spotify, type: string, required: true, description: "En Spotify: Compartir > Copiar enlace de la playlist." }
+      - { name: styles, label: Estilos, type: string, list: true, description: "Escríbelos igual que en los estilos de los artistas (ej. Funk, House). Así la playlist aparece en la ficha de cada artista con ese estilo." }
+      - { name: featured, label: Mostrar en la portada, type: boolean, default: false, description: "Se muestran las 4 primeras marcadas." }
+      - { name: order, label: Orden, type: number, default: 99 }
 
-  - name: servicios
-    label: "Página: Servicios"
-    type: file
-    path: content/pages/servicios.md
+  - name: testimonios
+    label: Testimonios
+    type: collection
+    path: content/testimonios
+    filename: "{primary}.md"
+    view:
+      primary: name
+      fields: [name, event, order]
+      sort: [order]
+      default: { sort: order, order: asc }
     fields:
-      - { name: title, label: Titular, type: string }
-      - { name: subtitle, label: Subtítulo, type: text }
-      - name: blocks
-        label: Bloques
-        type: object
-        list: true
-        fields:
-          - { name: title, label: Título, type: string }
-          - { name: image, label: Imagen, type: image }
-          - { name: text, label: Texto, type: text }
-
-  - name: quienes-somos
-    label: "Página: Quiénes somos"
-    type: file
-    path: content/pages/quienes-somos.md
-    fields:
-      - { name: title, label: Titular, type: string }
-      - { name: subtitle, label: Subtítulo, type: text }
-      - { name: image, label: Imagen, type: image }
-      - { name: body, label: Texto, type: rich-text }
-
-  - name: contacto
-    label: "Página: Contacto"
-    type: file
-    path: content/pages/contacto.md
-    fields:
-      - { name: title, label: Titular, type: string }
-      - { name: subtitle, label: Subtítulo, type: text }
-      - { name: image, label: Imagen, type: image }
-
-  - name: terminos
-    label: "Página: Términos"
-    type: file
-    path: content/pages/terminos.md
-    fields:
-      - { name: title, label: Titular, type: string }
-      - { name: body, label: Texto, type: rich-text }
+      - { name: quote, label: Testimonio, type: text, required: true, description: "Dos o tres frases como máximo." }
+      - { name: name, label: Nombre, type: string, required: true, description: "Ej. Laura y Marc" }
+      - { name: event, label: Evento, type: string, description: "Ej. Boda en Sitges · 2025" }
+      - { name: order, label: Orden, type: number, default: 99 }
 
   - name: site
     label: Datos de contacto
@@ -118,4 +91,3 @@ content:
       - { name: address, label: Dirección, type: string }
       - { name: instagram, label: Instagram (URL), type: string }
       - { name: spotify, label: Spotify (URL), type: string }
-      - { name: formEndpoint, label: Endpoint del formulario, type: string, description: "URL de Web3Forms / Formspree. Lo configura el desarrollador." }

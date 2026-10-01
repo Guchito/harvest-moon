@@ -18,7 +18,7 @@ export default function Servicios() {
       <section className="mx-auto max-w-[1400px] px-5 py-16 md:px-12 md:py-24">
         <div className="grid gap-12 md:grid-cols-3 md:gap-8">
           {page.blocks.map((b) => (
-            <div key={b.title}>
+            <div key={b.title} className="reveal">
               <div className="relative aspect-[4/3] overflow-hidden bg-night-2">
                 <Image src={b.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
               </div>
