@@ -1,0 +1,121 @@
+media:
+  input: public/media
+  output: /media
+
+components:
+  pageHeader:
+    - { name: title, label: Título, type: string, required: true }
+    - { name: subtitle, label: Subtítulo, type: text }
+    - { name: image, label: Imagen de cabecera, type: image }
+
+content:
+  - name: artistas
+    label: Artistas
+    type: collection
+    path: content/artistas
+    filename: "{primary}.md"
+    view:
+      primary: name
+      fields: [photo, name, genres, order]
+      sort: [order]
+      default: { sort: order, order: asc }
+    fields:
+      - { name: name, label: Nombre, type: string, required: true }
+      - { name: photo, label: Foto (vertical, 4:5), type: image, required: true }
+      - { name: genres, label: Estilos, type: string, list: true }
+      - { name: events, label: Tipos de evento, type: select, list: true, options: { values: [Bodas, Eventos de empresa, Pool party, Cumpleaños] } }
+      - { name: spotify, label: Spotify (URL), type: string }
+      - { name: instagram, label: Instagram (URL), type: string }
+      - { name: order, label: Orden, type: number, default: 99 }
+      - { name: body, label: Bio, type: rich-text }
+
+  - name: blog
+    label: Blog
+    type: collection
+    path: content/blog
+    filename: "{primary}.md"
+    view:
+      primary: title
+      fields: [cover, title, date]
+      sort: [date]
+      default: { sort: date, order: desc }
+    fields:
+      - { name: title, label: Título, type: string, required: true }
+      - { name: date, label: Fecha, type: date, required: true }
+      - { name: cover, label: Portada (16:9), type: image, required: true }
+      - { name: excerpt, label: Resumen, type: text, description: "Una o dos frases. Aparece en la lista del blog y en la portada." }
+      - { name: body, label: Texto, type: rich-text }
+
+  - name: inicio
+    label: "Página: Inicio"
+    type: file
+    path: content/pages/inicio.md
+    fields:
+      - { name: title, label: Titular, type: string }
+      - { name: subtitle, label: Subtítulo, type: text }
+      - { name: image, label: Foto principal, type: image }
+      - name: services
+        label: Tipos de evento
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Nombre, type: string }
+          - { name: text, label: Descripción corta, type: string }
+      - { name: body, label: Texto de bienvenida, type: rich-text }
+
+  - name: servicios
+    label: "Página: Servicios"
+    type: file
+    path: content/pages/servicios.md
+    fields:
+      - { name: title, label: Titular, type: string }
+      - { name: subtitle, label: Subtítulo, type: text }
+      - name: blocks
+        label: Bloques
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: image, label: Imagen, type: image }
+          - { name: text, label: Texto, type: text }
+
+  - name: quienes-somos
+    label: "Página: Quiénes somos"
+    type: file
+    path: content/pages/quienes-somos.md
+    fields:
+      - { name: title, label: Titular, type: string }
+      - { name: subtitle, label: Subtítulo, type: text }
+      - { name: image, label: Imagen, type: image }
+      - { name: body, label: Texto, type: rich-text }
+
+  - name: contacto
+    label: "Página: Contacto"
+    type: file
+    path: content/pages/contacto.md
+    fields:
+      - { name: title, label: Titular, type: string }
+      - { name: subtitle, label: Subtítulo, type: text }
+      - { name: image, label: Imagen, type: image }
+
+  - name: terminos
+    label: "Página: Términos"
+    type: file
+    path: content/pages/terminos.md
+    fields:
+      - { name: title, label: Titular, type: string }
+      - { name: body, label: Texto, type: rich-text }
+
+  - name: site
+    label: Datos de contacto
+    type: file
+    path: content/site.json
+    fields:
+      - { name: name, label: Nombre, type: string }
+      - { name: tagline, label: Lema, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: phone, label: Teléfono, type: string }
+      - { name: address, label: Dirección, type: string }
+      - { name: instagram, label: Instagram (URL), type: string }
+      - { name: spotify, label: Spotify (URL), type: string }
+      - { name: formEndpoint, label: Endpoint del formulario, type: string, description: "URL de Web3Forms / Formspree. Lo configura el desarrollador." }

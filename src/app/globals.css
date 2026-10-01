@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Opción A · Noche. Dark page, one accent, Archivo everywhere. */
+@theme {
+  --color-night: #0a0820;
+  --color-night-2: #110e2e;
+  --color-paper: #f2f0ff;
+  --color-accent: #8f84ff;
+  --color-muted: #a9a4d6;
+  --color-muted-2: #c4c0e6;
+  --color-line: rgb(255 255 255 / 0.1);
+
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+
+  --radius-*: initial; /* all-sharp corner system */
+}
+
+html {
+  background: var(--color-night);
+  color: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Rendered markdown (blog posts, pages). */
+.prose {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--color-muted-2);
+  max-width: 68ch;
+}
+.prose > * + * { margin-top: 1.25em; }
+.prose h2, .prose h3 {
+  color: var(--color-paper);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: 2em;
+}
+.prose h2 { font-size: 1.75rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose strong { color: var(--color-paper); }
+.prose a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+.prose ul { list-style: disc; padding-left: 1.25rem; }
+.prose ul li + li { margin-top: 0.4em; }
+.prose img { width: 100%; height: auto; margin-block: 2em; }
+
+/* Buttons: one shape (sharp), two fills. */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 3rem; padding-inline: 1.625rem;
+  font-weight: 700; font-size: 0.9375rem; white-space: nowrap;
+  transition: transform 150ms, background-color 150ms, color 150ms;
+}
+.btn:active { transform: scale(0.98); }
+.btn-accent { background: var(--color-accent); color: var(--color-night); }
+.btn-accent:hover { background: #a39aff; }
+.btn-paper { background: var(--color-paper); color: var(--color-night); }
+.btn-paper:hover { background: #fff; }
+.btn-ghost { border: 1px solid rgb(255 255 255 / 0.35); color: var(--color-paper); }
+.btn-ghost:hover { border-color: var(--color-paper); }
+.btn-ink { background: var(--color-night); color: var(--color-paper); }
+.btn-ink:hover { background: var(--color-night-2); }
+
+/* Markdown on the light blog surface. */
+.prose-paper { color: rgb(10 8 32 / 0.78); }
+.prose-paper h2, .prose-paper h3, .prose-paper strong { color: var(--color-night); }
+.prose-paper a { color: #4a3fd6; }
