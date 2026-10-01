@@ -45,6 +45,10 @@ export function ContactForm({ artists, preselect }: { artists: { slug: string; n
         <label htmlFor="message" className={label}>Cuéntanos sobre tu evento</label>
         <textarea id="message" name="message" rows={5} required className={field} />
       </div>
+      <label className="flex items-start gap-3 text-sm leading-relaxed text-muted-2 md:col-span-2">
+        <input type="checkbox" name="privacy" required className="mt-1 size-4 shrink-0 accent-accent" />
+        <span>He leído y acepto la <a href="/politica-de-privacidad" className="underline underline-offset-2 hover:text-paper">política de privacidad</a>. Usaremos tus datos solo para responder a esta solicitud.</span>
+      </label>
       <button type="submit" className="btn btn-accent md:col-span-2 md:justify-self-start">Enviar solicitud</button>
     </form>
   );

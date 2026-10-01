@@ -9,7 +9,7 @@ export async function submitContact(fd: FormData) {
   if (str(fd, "website")) redirect("/contact?enviado=1"); // honeypot: bots fill it, humans never see it
 
   const name = str(fd, "name"), email = str(fd, "email"), message = str(fd, "message");
-  if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !message || message.length > 5000) {
+  if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !message || message.length > 5000 || !fd.get("privacy")) {
     redirect("/contact?error=1");
   }
 

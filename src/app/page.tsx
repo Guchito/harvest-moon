@@ -38,8 +38,8 @@ export default function Home() {
             <Link href="/contact" className="btn btn-ghost">Pedir presupuesto</Link>
           </div>
         </div>
-        <div className="relative min-h-[60vw] overflow-hidden md:min-h-0">
-          <Image src={page.image!} alt="" fill priority sizes="(min-width: 768px) 45vw, 100vw" className="drift object-cover grayscale" />
+        <div className="relative aspect-[2/3] overflow-hidden md:aspect-auto">
+          <Image src={page.image!} alt="" fill priority fetchPriority="high" sizes="(min-width: 768px) 45vw, 100vw" className="drift object-cover grayscale" />
           <div className="absolute inset-0 hidden bg-gradient-to-r from-night to-transparent to-35% md:block" />
         </div>
       </section>

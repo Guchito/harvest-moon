@@ -29,6 +29,9 @@ export function Footer() {
             <Link key={n.href} href={n.href} className="hover:text-accent">{n.label}</Link>
           ))}
           <Link href="/terminos-y-condiciones" className="hover:text-accent">Términos y condiciones</Link>
+          <Link href="/aviso-legal" className="hover:text-accent">Aviso legal</Link>
+          <Link href="/politica-de-privacidad" className="hover:text-accent">Privacidad</Link>
+          <Link href="/politica-de-cookies" className="hover:text-accent">Cookies</Link>
         </nav>
         <address className="flex flex-col gap-2 text-sm not-italic text-muted-2">
           <a href={`mailto:${s.email}`} className="hover:text-accent">{s.email}</a>
