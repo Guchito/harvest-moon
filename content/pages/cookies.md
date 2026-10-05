@@ -10,7 +10,7 @@ Pequeños archivos que el navegador guarda al visitar un sitio web. Pueden ser p
 
 ## Cookies que utiliza este sitio
 
-No utilizamos cookies de analítica ni de publicidad.
+No utilizamos cookies de analítica ni de publicidad. Para contar visitas usamos **Vercel Web Analytics**, que no instala cookies ni guarda nada en tu navegador y no permite identificarte.
 
 **Necesarias**
 
