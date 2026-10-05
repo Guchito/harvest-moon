@@ -44,3 +44,6 @@ next-env.d.ts
 design/*.png
 design/*.pdf
 .DS_Store
+
+# Fotos originales sin procesar (lo que usa la web está en public/media)
+/imgs/
