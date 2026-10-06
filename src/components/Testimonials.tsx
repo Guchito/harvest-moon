@@ -5,7 +5,7 @@ import Image from "next/image";
 import type { Testimonial } from "@/lib/content";
 
 // Screens of scrolling each quote stays on. Raise to linger longer, lower to move faster.
-const SCREENS_PER_QUOTE = 1.6;
+const SCREENS_PER_QUOTE = 1.4;
 const screens = (n: number) => `calc(${n} * (100dvh - 4.5rem))`;
 
 // Scroll-pinned: the section is SCREENS_PER_QUOTE viewports tall per quote. The visible part sticks under
