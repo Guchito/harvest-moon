@@ -1,7 +1,7 @@
 ---
 title: "Nuestra música, tu fiesta."
 subtitle: "DJs para bodas, eventos de empresa y pool parties en Barcelona. No musicalizamos reuniones. Hacemos que la gente baile."
-image: /media/pages/hero-dj-re.jpg
+image: /media/pages/hero-dj-re2.jpeg
 services:
   - title: Bodas
     text: Del cóctel al último lento

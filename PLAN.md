@@ -4,50 +4,52 @@ Dirección elegida: **Opción A · Noche** (ver `design/opciones.html`).
 
 ## Stack
 
-| Qué | Elección | Por qué |
-|---|---|---|
-| Framework | Next.js 15, App Router, TypeScript, static generation | Todo es contenido estático; sin servidor que mantener |
-| Estilos | Tailwind v4 | Tokens de la opción A como variables CSS |
-| Fuente | Archivo (variable), self-hosted con `next/font` | Es la del mockup, open source |
-| Iconos | `@phosphor-icons/react` | Solo los 4-5 que hagan falta (menú, flechas, redes) |
-| Animación | CSS transitions; `motion/react` solo si hace falta un reveal | Mantener ligero |
-| Contenido | Markdown + frontmatter en `content/`, leído con `gray-matter` + `marked` | Es lo que edita Pages CMS |
-| CMS | Pages CMS (`.pages.yml` en la raíz del repo, app de GitHub) | Edita commits directos; sin base de datos |
-| Formulario contacto | Web3Forms o Formspree (gratis, sin backend) | Un `action` en el `<form>`; cuando llegue el bookeo se sustituye |
-| Hosting | Vercel, deploy automático en cada commit | Pages CMS → commit → rebuild en ~1 min |
-| Dominio | harvestmoonevents.eu apuntado a Vercel al final | Hasta entonces, URL de preview |
+| Qué                 | Elección                                                                 | Por qué                                                          |
+| ------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| Framework           | Next.js 15, App Router, TypeScript, static generation                    | Todo es contenido estático; sin servidor que mantener            |
+| Estilos             | Tailwind v4                                                              | Tokens de la opción A como variables CSS                         |
+| Fuente              | Archivo (variable), self-hosted con `next/font`                          | Es la del mockup, open source                                    |
+| Iconos              | `@phosphor-icons/react`                                                  | Solo los 4-5 que hagan falta (menú, flechas, redes)              |
+| Animación           | CSS transitions; `motion/react` solo si hace falta un reveal             | Mantener ligero                                                  |
+| Contenido           | Markdown + frontmatter en `content/`, leído con `gray-matter` + `marked` | Es lo que edita Pages CMS                                        |
+| CMS                 | Pages CMS (`.pages.yml` en la raíz del repo, app de GitHub)              | Edita commits directos; sin base de datos                        |
+| Formulario contacto | Web3Forms o Formspree (gratis, sin backend)                              | Un `action` en el `<form>`; cuando llegue el bookeo se sustituye |
+| Hosting             | Vercel, deploy automático en cada commit                                 | Pages CMS → commit → rebuild en ~1 min                           |
+| Dominio             | harvestmoonevents.eu apuntado a Vercel al final                          | Hasta entonces, URL de preview                                   |
 
 ## Rutas (se conservan los slugs actuales para SEO)
 
-| Ruta | Página | Fuente |
-|---|---|---|
-| `/` | Inicio | `content/pages/inicio.md` + 3 artistas + 2 posts recientes |
-| `/artistas` | Roster | `content/artistas/*.md` |
-| `/artistas/[slug]` | Ficha de DJ (nueva) | mismo archivo; base para el bookeo futuro |
-| `/about` | Servicios ("Juntos en cada paso", precios) | `content/pages/servicios.md` |
-| `/quienes-somos` | Historia de Rodrigo | `content/pages/quienes-somos.md` |
-| `/blog-de-novedades` | Lista de posts | `content/blog/*.md` |
-| `/blog-de-novedades/[slug]` | Post | idem |
-| `/contact` | Contacto + formulario | `content/pages/contacto.md` (datos) |
-| `/terminos-y-condiciones` | Términos | `content/pages/terminos.md` |
-| `/lo-mas-importante-de-una-boda/*` | redirect 301 → `/blog-de-novedades` | URLs viejas de Squarespace |
+| Ruta                               | Página                                     | Fuente                                                     |
+| ---------------------------------- | ------------------------------------------ | ---------------------------------------------------------- |
+| `/`                                | Inicio                                     | `content/pages/inicio.md` + 3 artistas + 2 posts recientes |
+| `/artistas`                        | Roster                                     | `content/artistas/*.md`                                    |
+| `/artistas/[slug]`                 | Ficha de DJ (nueva)                        | mismo archivo; base para el bookeo futuro                  |
+| `/about`                           | Servicios ("Juntos en cada paso", precios) | `content/pages/servicios.md`                               |
+| `/quienes-somos`                   | Historia de Rodrigo                        | `content/pages/quienes-somos.md`                           |
+| `/blog-de-novedades`               | Lista de posts                             | `content/blog/*.md`                                        |
+| `/blog-de-novedades/[slug]`        | Post                                       | idem                                                       |
+| `/contact`                         | Contacto + formulario                      | `content/pages/contacto.md` (datos)                        |
+| `/terminos-y-condiciones`          | Términos                                   | `content/pages/terminos.md`                                |
+| `/lo-mas-importante-de-una-boda/*` | redirect 301 → `/blog-de-novedades`        | URLs viejas de Squarespace                                 |
 
 ## Modelo de contenido (lo que edita el cliente en Pages CMS)
 
 **Artista** (`content/artistas/dj-re.md`)
+
 ```yaml
 name: Dj Re!
 slug: dj-re
-photo: /media/artistas/dj-re.jpg
+photo: /media/artistas/dj-re.jpeg
 genres: [House, Rock & Soul, Funk, Breaks]
 events: [Bodas, Eventos de empresa, Pool party]
-spotify: https://open.spotify.com/...   # opcional
+spotify: https://open.spotify.com/... # opcional
 order: 1
 ---
 Bio en markdown.
 ```
 
 **Post** (`content/blog/la-epoca-dorada-de-los-lentos.md`)
+
 ```yaml
 title: La época dorada de los lentos
 date: 2025-01-24

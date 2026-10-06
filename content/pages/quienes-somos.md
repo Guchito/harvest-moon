@@ -1,7 +1,7 @@
 ---
 title: "Conoce la historia de Rodrigo, nuestro fundador"
 subtitle: "Un amor con 25 años de trayectoria"
-image: /media/pages/rodrigo-historia.jpg
+image: /media/pages/rodrigo-historia.jpeg
 ---
 
 ## Un amor con 25 años de trayectoria

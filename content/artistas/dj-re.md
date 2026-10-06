@@ -1,6 +1,6 @@
 ---
 name: "Dj Re!"
-photo: /media/artistas/dj-re.jpg
+photo: /media/artistas/dj-re.jpeg
 genres: [House, Rock & Soul, Funk, Breaks]
 events: [Bodas, Eventos de empresa, Pool party]
 spotify: ""
