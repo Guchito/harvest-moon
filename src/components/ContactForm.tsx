@@ -27,9 +27,12 @@ export function ContactForm({ artists, preselect }: { artists: { slug: string; n
         <label htmlFor="type" className={label}>Tipo de evento</label>
         <select id="type" name="type" className={field} defaultValue="">
           <option value="" disabled>Elige una opción</option>
+          <option>Fiesta temática</option>
           <option>Boda</option>
-          <option>Evento de empresa</option>
           <option>Pool party</option>
+          <option>Fiesta electrónica</option>
+          <option>Cocktail / Afterwork</option>
+          <option>Evento corporativo</option>
           <option>Cumpleaños</option>
           <option>Otro</option>
         </select>

@@ -23,7 +23,7 @@ content:
       - { name: name, label: Nombre, type: string, required: true }
       - { name: photo, label: Foto (vertical, 4:5), type: image, required: true }
       - { name: genres, label: Estilos, type: string, list: true }
-      - { name: events, label: Tipos de evento, type: select, list: true, options: { values: [Bodas, Eventos de empresa, Pool party, Cumpleaños] } }
+      - { name: events, label: Tipos de evento, type: select, list: true, options: { values: [Fiestas temáticas, Bodas, Pool party, Fiestas electrónicas, Cocktails / Afterworks, Eventos de empresa, Cumpleaños] } }
       - { name: spotify, label: Spotify (URL), type: string }
       - { name: instagram, label: Instagram (URL), type: string }
       - { name: order, label: Orden, type: number, default: 99 }

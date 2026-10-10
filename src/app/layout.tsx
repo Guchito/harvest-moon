@@ -16,8 +16,8 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   // Vercel's production URL (the custom domain once attached), so share previews work before the DNS switch.
   metadataBase: new URL(process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://www.harvestmoonevents.eu"),
-  title: { default: "Harvest Moon · DJs para bodas y eventos en Barcelona", template: "%s · Harvest Moon" },
-  description: "Agencia de DJs en Barcelona para bodas, eventos de empresa y pool parties en hoteles.",
+  title: { default: "Harvest Moon · DJs para bodas y fiestas en Barcelona", template: "%s · Harvest Moon" },
+  description: "Agencia de DJs en Barcelona para bodas, fiestas temáticas, pool parties, fiestas electrónicas, afterworks y eventos corporativos.",
   openGraph: { type: "website", locale: "es_ES", siteName: "Harvest Moon" },
   alternates: { canonical: "/" },
 };

@@ -46,9 +46,9 @@ export default function Home() {
 
       <ul className="grid border-y border-line md:grid-cols-3">
         {page.services.map((s) => (
-          <li key={s.title} className="reveal border-b border-line px-5 py-8 last:border-b-0 md:border-r md:border-b-0 md:px-12 md:py-10 md:last:border-r-0">
+          <li key={s.title} className="reveal border-b border-line px-5 py-8 last:border-b-0 md:border-r md:px-12 md:py-10 md:nth-[3n]:border-r-0 md:nth-last-[-n+3]:border-b-0">
             <strong className="block text-2xl font-black tracking-tight md:text-[1.75rem]">{s.title}</strong>
-            <span className="mt-2 block text-sm text-muted">{s.text}</span>
+            <span className="mt-2 block text-xs font-light tracking-wide text-accent">{s.text}</span>
           </li>
         ))}
       </ul>

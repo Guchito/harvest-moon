@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 import { Mark, archivoBlack } from "@/lib/og";
 
 // Preview card shown when the URL is pasted in WhatsApp, iMessage, Slack, social...
-export const alt = "Harvest Moon · DJs para bodas y eventos en Barcelona";
+export const alt = "Harvest Moon · DJs para bodas y fiestas en Barcelona";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -23,7 +23,7 @@ export default function OpenGraphImage() {
         <span>Nuestra música,</span>
         <span style={{ color: "#8f84ff" }}>tu fiesta.</span>
       </div>
-      <div style={{ display: "flex", fontSize: 30, color: "#a9a4d6" }}>DJs para bodas, eventos de empresa y pool parties · Barcelona</div>
+      <div style={{ display: "flex", fontSize: 30, color: "#a9a4d6" }}>DJs para bodas, fiestas, pool parties y afterworks · Barcelona</div>
     </div>,
     { ...size, fonts: [{ name: "Archivo", data: archivoBlack(), weight: 900, style: "normal" }] },
   );
