@@ -53,6 +53,11 @@ export default function Home() {
         ))}
       </ul>
 
+      <section className="mx-auto max-w-[1400px] px-5 py-20 md:px-12 md:py-24">
+        <div className="reveal prose prose-lg" dangerouslySetInnerHTML={{ __html: page.html }} />
+        <Link href="/contact" className="btn btn-accent mt-10">Pedir presupuesto</Link>
+      </section>
+
       <Chapters chapters={page.highlights} />
 
       <section className="mx-auto max-w-[1400px] px-5 py-20 md:px-12 md:py-24">
@@ -88,11 +93,6 @@ export default function Home() {
             {posts.map((p) => <PostCard key={p.slug} p={p} />)}
           </div>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-[1400px] px-5 py-20 md:px-12 md:py-24">
-        <div className="reveal prose prose-lg" dangerouslySetInnerHTML={{ __html: page.html }} />
-        <Link href="/contact" className="btn btn-accent mt-10">Pedir presupuesto</Link>
       </section>
     </>
   );

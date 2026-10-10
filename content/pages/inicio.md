@@ -1,20 +1,20 @@
 ---
 title: "Nuestra música, tu fiesta."
-subtitle: "DJs en Barcelona para todo tipo de fiestas: de la boda a la pool party, del cóctel a la pista electrónica. No musicalizamos reuniones. Hacemos que la gente baile."
+subtitle: "DJs para bodas y eventos en Ibiza y Barcelona."
 image: /media/pages/hero-dj-re2.jpeg
 services:
   - title: Fiestas temáticas
-    text: Disco. Rock. Africana. Brasilera
+    text: disco. rock. africana. brasilera
   - title: Bodas
-    text: Clásicos y contemporáneos para todos los gustos
-  - title: Pool parties
-    text: House. Deep house. Funk. Disco house
+    text: clásicos y contemporáneos para todos los gustos
+  - title: Pool partys
+    text: house. deep house. funk. disco house
   - title: Fiestas electrónicas
-    text: House. Techno. Electro. Minimal. Breakbeats
+    text: house. tecno. electro. minimal. break beats
   - title: Cocktails / Afterworks
-    text: Jazz. Soul. Bossa nova. Ambient
+    text: jazz. soul. bossanova. ambient.
   - title: Eventos corporativos
-    text: Audiovisuales
+    text: audiovisuales
 highlights:
   - title: Tus invitados bailando = nuestra garantía
     image: /media/videos/invitados-bailando.jpg
@@ -40,4 +40,4 @@ highlights:
       - "El día del evento, nuestro equipo técnico está a tu disposición, cuidando cada aspecto de la instalación para que todo esté impecable y disfrutes de una noche sin contratiempos."
 ---
 
-Porque no es lo mismo que tus invitados asistan a un evento a que celebren un acontecimiento. Nosotros no vamos a musicalizar una reunión. Esta página te presenta DJs que saben hacer otra cosa.
+Porque no es lo mismo que tus invitados asistan a un evento a que celebren un acontecimiento, nosotros no vamos a musicalizar una reunión. Esta página web te presenta DJs que lo que saben hacer es otra cosa; que una unión sea una fiesta.
