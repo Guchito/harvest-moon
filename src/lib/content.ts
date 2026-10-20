@@ -30,6 +30,7 @@ export type Playlist = {
   slug: string;
   title: string;
   spotify: string;
+  cover?: string;
   styles: string[];
   featured: boolean;
   order: number;
@@ -96,12 +97,6 @@ export function getPlaylists(): Playlist[] {
   return dir("playlists")
     .map(({ slug, data }) => ({ slug, ...(data as Omit<Playlist, "slug">), styles: (data.styles as string[]) ?? [] }))
     .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
-}
-
-// Playlists sharing at least one style with the artist's genres (case-insensitive).
-export function getPlaylistsFor(artist: Artist) {
-  const genres = new Set(artist.genres.map((g) => g.toLowerCase()));
-  return getPlaylists().filter((p) => p.styles.some((s) => genres.has(s.toLowerCase())));
 }
 
 export function getTestimonials(): Testimonial[] {

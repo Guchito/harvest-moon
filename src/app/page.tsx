@@ -75,7 +75,7 @@ export default function Home() {
               <Link href="/playlists" className="btn btn-ghost h-10 px-4 text-sm">Ver todas</Link>
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {playlists.map((p) => <SpotifyPlaylist key={p.slug} url={p.spotify} title={p.title} />)}
+              {playlists.map((p) => <SpotifyPlaylist key={p.slug} url={p.spotify} title={p.title} cover={p.cover} />)}
             </div>
           </div>
         </section>

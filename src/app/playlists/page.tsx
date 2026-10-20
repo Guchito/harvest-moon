@@ -13,8 +13,8 @@ export default function Playlists() {
       <div className="mt-14 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
         {playlists.map((p) => (
           <div key={p.slug}>
-            <SpotifyPlaylist url={p.spotify} title={p.title} />
-            <p className="mt-3 text-sm text-muted">{p.styles.join(" · ")}</p>
+            <SpotifyPlaylist url={p.spotify} title={p.title} cover={p.cover} eager />
+            {p.styles.length > 0 && <p className="mt-3 text-sm text-muted">{p.styles.join(" · ")}</p>}
           </div>
         ))}
       </div>

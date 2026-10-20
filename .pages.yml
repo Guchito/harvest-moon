@@ -59,7 +59,8 @@ content:
     fields:
       - { name: title, label: Nombre, type: string, required: true }
       - { name: spotify, label: Enlace de Spotify, type: string, required: true, description: "En Spotify: Compartir > Copiar enlace de la playlist." }
-      - { name: styles, label: Estilos, type: string, list: true, description: "Escríbelos igual que en los estilos de los artistas (ej. Funk, House). Así la playlist aparece en la ficha de cada artista con ese estilo." }
+      - { name: cover, label: Portada, type: image, description: "Se ve detrás del botón Escuchar hasta que el visitante acepta las cookies de Spotify." }
+      - { name: styles, label: Estilos, type: string, list: true, description: "Opcional. Se muestran debajo de la playlist en la página de playlists." }
       - { name: featured, label: Mostrar en la portada, type: boolean, default: false, description: "Se muestran las 4 primeras marcadas." }
       - { name: order, label: Orden, type: number, default: 99 }
 
