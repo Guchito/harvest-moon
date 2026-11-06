@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    "/admin/api/presupuesto": [
+      "./public/media/pages/evento-noche.jpg",
+      "./public/media/pages/boda-cornelia-hueso.jpg",
+      "./public/media/pages/servicios-*.jpg",
+      "./public/symbol.svg",
+    ],
+  },
   async redirects() {
     return [
       // Old Squarespace blog URLs
