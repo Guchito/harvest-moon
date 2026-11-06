@@ -10,7 +10,6 @@ export type Artist = {
   name: string;
   photo: string;
   genres: string[];
-  events: string[];
   spotify?: string;
   instagram?: string;
   order: number;

@@ -2,7 +2,6 @@
 name: "DJ Charlie Sosa"
 photo: /media/artistas/charlie-sosa.jpg
 genres: [Cachengue, House, Pop, Afrohouse, House Melódico]
-events: [Bodas, Eventos de empresa]
 spotify: ""
 instagram: ""
 order: 4

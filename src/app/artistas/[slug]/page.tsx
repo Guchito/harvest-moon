@@ -26,10 +26,9 @@ export default async function ArtistPage({ params }: PageProps<"/artistas/[slug]
       <div>
         <h1 className="text-5xl font-black leading-[0.95] tracking-[-0.04em] md:text-7xl">{a.name}</h1>
         <p className="mt-5 text-lg text-accent">{a.genres.join(" · ")}</p>
-        <p className="mt-1 text-sm text-muted">{a.events.join(" · ")}</p>
         <div className="prose mt-8" dangerouslySetInnerHTML={{ __html: a.html }} />
         <div className="mt-10 flex flex-wrap items-center gap-4">
-          <Link href={`/contact?dj=${encodeURIComponent(a.name)}`} className="btn btn-accent">Pedir presupuesto con {a.name}</Link>
+          <Link href="/contact" className="btn btn-accent">Pedir presupuesto</Link>
           {a.spotify && <a href={a.spotify} aria-label="Spotify" className="hover:text-accent"><SpotifyLogo size={28} /></a>}
           {a.instagram && <a href={a.instagram} aria-label="Instagram" className="hover:text-accent"><InstagramLogo size={28} /></a>}
         </div>

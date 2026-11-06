@@ -2,7 +2,6 @@
 name: "Nando Sol"
 photo: /media/artistas/nando-sol.jpg
 genres: [House, Latina, Electrónica]
-events: [Pool party, Eventos de empresa, Cumpleaños]
 spotify: ""
 instagram: ""
 order: 5

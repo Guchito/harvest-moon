@@ -19,7 +19,6 @@ export async function submitContact(fd: FormData) {
     `Teléfono: ${str(fd, "phone") || "-"}`,
     `Fecha del evento: ${str(fd, "date") || "-"}`,
     `Tipo de evento: ${str(fd, "type") || "-"}`,
-    `DJ: ${str(fd, "dj") || "Sin preferencia"}`,
     "",
     message,
   ];

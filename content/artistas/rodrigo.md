@@ -2,7 +2,6 @@
 name: "Rodrigo"
 photo: /media/artistas/rodrigo3.jpeg
 genres: [Disco, Funk, Rock, Pop, Electrónica]
-events: [Bodas, Eventos de empresa, Pool party]
 spotify: ""
 instagram: ""
 order: 3

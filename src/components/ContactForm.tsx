@@ -1,7 +1,7 @@
 import { submitContact } from "@/app/contact/actions";
 
 // Native form + server action: works without client JS.
-export function ContactForm({ artists, preselect }: { artists: { slug: string; name: string }[]; preselect?: string }) {
+export function ContactForm() {
   const field = "w-full border border-line bg-night-2 px-4 py-3 text-paper placeholder:text-muted focus:border-accent focus:outline-none transition-colors";
   const label = "mb-2 block text-sm font-semibold";
   return (
@@ -35,13 +35,6 @@ export function ContactForm({ artists, preselect }: { artists: { slug: string; n
           <option>Evento corporativo</option>
           <option>Cumpleaños</option>
           <option>Otro</option>
-        </select>
-      </div>
-      <div>
-        <label htmlFor="dj" className={label}>DJ (opcional)</label>
-        <select id="dj" name="dj" className={field} defaultValue={preselect ?? ""}>
-          <option value="">Sin preferencia</option>
-          {artists.map((a) => <option key={a.slug} value={a.name}>{a.name}</option>)}
         </select>
       </div>
       <div className="md:col-span-2">
