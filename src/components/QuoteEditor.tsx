@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
 type Company = {
   name: string;
@@ -77,8 +77,21 @@ export function QuoteEditor({ company }: { company: Company }) {
   const [terms, setTerms] = useState("");
   const [error, setError] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isTierCopyDialogOpen, setIsTierCopyDialogOpen] = useState(false);
   const nextTierId = useRef(2);
   const nextLineItemId = useRef(2);
+  const tierCopyDialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = tierCopyDialogRef.current;
+    if (!dialog) return;
+
+    if (isTierCopyDialogOpen && !dialog.open) {
+      dialog.showModal();
+    } else if (!isTierCopyDialogOpen && dialog.open) {
+      dialog.close();
+    }
+  }, [isTierCopyDialogOpen]);
 
   function updateEvent<Key extends keyof EventDetails>(key: Key, value: EventDetails[Key]) {
     setEvent((current) => ({ ...current, [key]: value }));
@@ -140,16 +153,28 @@ export function QuoteEditor({ company }: { company: Company }) {
     );
   }
 
-  function addTier() {
+  function requestAddTier() {
     if (tiers.length >= MAX_TIERS) return;
+    setIsTierCopyDialogOpen(true);
+  }
+
+  function addTier(copyPrevious: boolean) {
+    if (tiers.length >= MAX_TIERS) return;
+
+    const previousTier = tiers.at(-1);
+    const lineItems =
+      copyPrevious && previousTier
+        ? previousTier.lineItems.map((item) => ({
+            ...item,
+            id: nextLineItemId.current++,
+          }))
+        : [{ id: nextLineItemId.current++, description: "", price: "", hidden: false }];
+
     setTiers((current) => [
       ...current,
-      {
-        id: nextTierId.current++,
-        name: "",
-        lineItems: [{ id: nextLineItemId.current++, description: "", price: "", hidden: false }],
-      },
+      { id: nextTierId.current++, name: "", lineItems },
     ]);
+    setIsTierCopyDialogOpen(false);
   }
 
   function removeTier(id: number) {
@@ -221,6 +246,10 @@ export function QuoteEditor({ company }: { company: Company }) {
       setIsGenerating(false);
     }
   }
+
+  const previousTier = tiers.at(-1);
+  const previousTierName = previousTier?.name.trim() || `Opción ${tiers.length}`;
+  const previousTierItemCount = previousTier?.lineItems.length ?? 0;
 
   return (
     <form onSubmit={generatePdf} className="grid gap-8">
@@ -419,13 +448,54 @@ export function QuoteEditor({ company }: { company: Company }) {
 
         <button
           type="button"
-          onClick={addTier}
+          onClick={requestAddTier}
           disabled={tiers.length >= MAX_TIERS}
           className="btn btn-ghost mt-5 disabled:cursor-not-allowed disabled:opacity-50"
         >
           + Añadir opción
         </button>
       </section>
+
+      <dialog
+        ref={tierCopyDialogRef}
+        onClose={() => setIsTierCopyDialogOpen(false)}
+        aria-labelledby="tier-copy-title"
+        aria-describedby="tier-copy-description"
+        className="fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-lg border border-line bg-night p-6 text-paper shadow-2xl backdrop:bg-night/80 md:p-8"
+      >
+        <h2 id="tier-copy-title" className="text-xl font-bold tracking-tight">
+          ¿Querés incluir el tier anterior?
+        </h2>
+        <p id="tier-copy-description" className="mt-3 text-sm leading-relaxed text-muted-2">
+          {previousTierItemCount}{" "}
+          {previousTierItemCount === 1 ? "concepto" : "conceptos"} de {previousTierName} se
+          copiarán con sus precios y ajustes de «Ocultar». El nombre del nuevo tier quedará en
+          blanco y podrás editarlo todo.
+        </p>
+        <div className="mt-7 flex flex-wrap justify-end gap-3">
+          <button
+            type="button"
+            onClick={() => setIsTierCopyDialogOpen(false)}
+            className="btn btn-ghost focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            onClick={() => addTier(false)}
+            className="btn btn-ghost focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            No, empezar vacío
+          </button>
+          <button
+            type="button"
+            onClick={() => addTier(true)}
+            className="btn btn-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            Sí, incluirlo
+          </button>
+        </div>
+      </dialog>
 
       <section className={sectionClass}>
         <p className="text-sm font-bold uppercase tracking-[0.16em] text-accent">03 · Condiciones</p>
