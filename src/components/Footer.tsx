@@ -41,7 +41,7 @@ export function Footer() {
           <span>{s.address}</span>
         </address>
       </div>
-      <p className="mx-auto max-w-[1400px] px-5 pb-8 text-xs text-muted md:px-12">
+      <p className="mx-auto max-w-350 px-5 pb-8 text-xs text-muted md:px-12">
         © {new Date().getFullYear()} {s.name}
       </p>
     </footer>
