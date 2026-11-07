@@ -8,7 +8,7 @@ export function Footer() {
   const s = getSite();
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-12">
+      <div className="mx-auto grid max-w-350 gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-12">
         <div>
           <Link href="/" className="flex items-center gap-3 text-xl font-black tracking-tight">
             <Logo className="size-9" />
