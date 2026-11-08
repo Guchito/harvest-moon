@@ -87,8 +87,5 @@ content:
     fields:
       - { name: name, label: Nombre, type: string }
       - { name: tagline, label: Lema, type: string }
-      - { name: email, label: Email, type: string }
-      - { name: phone, label: Teléfono, type: string }
-      - { name: address, label: Dirección, type: string }
       - { name: instagram, label: Instagram (URL), type: string }
       - { name: spotify, label: Spotify (URL), type: string }

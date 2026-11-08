@@ -3,10 +3,13 @@ import { Resend } from "resend";
 // Single outbound-mail helper. Contact, booking and lighting requests all go through here.
 // ponytail: plain text only; add a React email template when a request type needs formatting.
 export async function sendMail({ subject, text, replyTo }: { subject: string; text: string; replyTo?: string }) {
+  const recipient = process.env.EMAIL;
+  if (!recipient) throw new Error("EMAIL is not configured.");
+
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from: process.env.MAIL_FROM ?? "Harvest Moon <onboarding@resend.dev>",
-    to: process.env.MAIL_TO ?? "info@harvestmoondjs.com",
+    to: recipient,
     replyTo,
     subject,
     text,

@@ -81,7 +81,7 @@ Imágenes: `public/media/` (Pages CMS `media.input: public/media`, `output: /med
 ## Pendiente de confirmar con el cliente
 
 1. Cuenta de GitHub para el repo (¿la tuya o la del cliente?) y de Vercel.
-2. Email que recibe el formulario (¿info@harvestmoonevents.eu?).
+2. Email que recibe el formulario (configurado en la variable `EMAIL`).
 3. Acceso al DNS de harvestmoonevents.eu para el cambio final.
 4. ¿Fichas individuales de DJ sí o no? (Recomendado: sí, por el bookeo.)
 5. Redes sociales a enlazar (Instagram, Spotify).

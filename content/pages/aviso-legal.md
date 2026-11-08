@@ -10,9 +10,9 @@ En cumplimiento de la Ley 34/2002, de Servicios de la Sociedad de la Informació
 
 - **Titular:** [PENDIENTE: razón social o nombre y apellidos]
 - **NIF/CIF:** [PENDIENTE]
-- **Domicilio:** Gran Via de les Corts Catalanes 940, Barcelona
-- **Correo electrónico:** info@harvestmoonevents.eu
-- **Teléfono:** +34 658 77 47 08
+- **Domicilio:** {{ADDRESS}}
+- **Correo electrónico:** {{EMAIL}}
+- **Teléfono:** {{PHONE}}
 - **Datos registrales:** [PENDIENTE, si es sociedad]
 
 ## 2. Objeto

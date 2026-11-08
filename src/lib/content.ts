@@ -56,7 +56,12 @@ export type Site = {
 
 function read(file: string) {
   const { data, content } = matter(fs.readFileSync(file, "utf8"));
-  return { data, html: marked.parse(content, { async: false }) as string };
+  const site = getSite();
+  const pageContent = content
+    .replaceAll("{{EMAIL}}", site.email)
+    .replaceAll("{{ADDRESS}}", site.address)
+    .replaceAll("{{PHONE}}", site.phone);
+  return { data, html: marked.parse(pageContent, { async: false }) as string };
 }
 
 function dir(name: string) {
@@ -110,7 +115,13 @@ export function getPage<T = Record<string, unknown>>(name: string): Page<T> {
 }
 
 export function getSite(): Site {
-  return JSON.parse(fs.readFileSync(path.join(ROOT, "site.json"), "utf8"));
+  const site = JSON.parse(fs.readFileSync(path.join(ROOT, "site.json"), "utf8"));
+  return {
+    ...site,
+    email: process.env.EMAIL ?? "",
+    phone: process.env.PHONE ?? "",
+    address: process.env.ADDRESS ?? "",
+  };
 }
 
 export function formatDate(iso: string) {

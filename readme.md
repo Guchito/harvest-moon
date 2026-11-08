@@ -39,12 +39,14 @@ Set these in `.env.local` for local development and in the hosting provider's en
 | --- | --- |
 | `RESEND_API_KEY` | Resend API key used to send contact enquiries. |
 | `MAIL_FROM` | Optional sender address; defaults to `Harvest Moon <onboarding@resend.dev>`. Configure a sender verified with Resend for production email. |
-| `MAIL_TO` | Optional enquiry recipient; defaults to `info@harvestmoonevents.eu`. |
+| `EMAIL` | Contact email shown on the site and recipient for contact-form enquiries. |
+| `ADDRESS` | Business address shown on the site and legal pages. |
+| `PHONE` | Contact phone shown on the site and legal pages. |
 | `QUOTE_ADMIN_USERNAME` | Username for the private quote builder. |
 | `QUOTE_ADMIN_PASSWORD` | Password for the quote builder; must be at least 12 characters. |
 | `QUOTE_SESSION_SECRET` | Secret used to sign quote-admin sessions; must be at least 32 characters. |
 
-The quote builder remains unavailable until all three `QUOTE_*` variables are valid. Keep credentials and API keys out of source control.
+Set `EMAIL`, `ADDRESS`, and `PHONE` to the current contact details. The quote builder remains unavailable until all three `QUOTE_*` variables are valid. Keep credentials and API keys out of source control.
 
 ## Project structure
 
@@ -55,7 +57,7 @@ content/
   pages/          Page copy (Markdown with frontmatter)
   playlists/      Playlist details (Markdown with frontmatter)
   testimonios/    Testimonials (Markdown with frontmatter)
-  site.json       Company name and contact details
+  site.json       Company name, tagline, and social links
 public/media/     Images and videos used by the site
 src/app/          Next.js routes and route handlers
 src/components/   Shared UI components

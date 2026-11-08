@@ -8,8 +8,8 @@ title: "Política de privacidad"
 
 - **Responsable:** [PENDIENTE: razón social o nombre y apellidos]
 - **NIF/CIF:** [PENDIENTE]
-- **Domicilio:** Gran Via de les Corts Catalanes 940, Barcelona
-- **Correo electrónico:** info@harvestmoonevents.eu
+- **Domicilio:** {{ADDRESS}}
+- **Correo electrónico:** {{EMAIL}}
 
 ## 2. Qué datos tratamos y para qué
 
@@ -31,7 +31,7 @@ Los mensajes del formulario se envían por correo electrónico mediante el prove
 
 ## 6. Tus derechos
 
-Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a info@harvestmoonevents.eu. También puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).
+Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a {{EMAIL}}. También puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).
 
 ## 7. Cookies
 

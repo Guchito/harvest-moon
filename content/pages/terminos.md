@@ -45,4 +45,4 @@ Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquie
 
 ## 8. Contacto
 
-Para cualquier pregunta sobre estos Términos y Condiciones, contáctanos en info@harvestmoonevents.eu.
+Para cualquier pregunta sobre estos Términos y Condiciones, contáctanos en {{EMAIL}}.
