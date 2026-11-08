@@ -6,7 +6,7 @@ export async function sendMail({ subject, text, replyTo }: { subject: string; te
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from: process.env.MAIL_FROM ?? "Harvest Moon <onboarding@resend.dev>",
-    to: process.env.MAIL_TO ?? "info@harvestmoonevents.eu",
+    to: process.env.MAIL_TO ?? "info@harvestmoondjs.com",
     replyTo,
     subject,
     text,
