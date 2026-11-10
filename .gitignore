@@ -48,3 +48,6 @@ design/*.pdf
 
 # Fotos originales sin procesar (lo que usa la web está en public/media)
 /imgs/
+
+#Textos para la web
+/texts/

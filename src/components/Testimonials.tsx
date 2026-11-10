@@ -3,14 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { Testimonial } from "@/lib/content";
+import type { CSSProperties } from "react";
 
 // Screens of scrolling each quote stays on. Raise to linger longer, lower to move faster.
-const SCREENS_PER_QUOTE = 1.4;
+const DESKTOP_SCREENS_PER_QUOTE = 1.1;
+const MOBILE_SCREENS_PER_QUOTE = 0.75;
 const screens = (n: number) => `calc(${n} * (100dvh - 4.5rem))`;
+const responsiveHeight = (desktop: number, mobile: number) =>
+  ({
+    "--desktop-scroll-height": screens(desktop),
+    "--mobile-scroll-height": screens(mobile),
+  }) as CSSProperties;
 
-// Scroll-pinned: the section is SCREENS_PER_QUOTE viewports tall per quote. The visible part sticks under
-// the header while invisible full-height steps scroll past; whichever step crosses the
-// middle of the screen picks the active quote. After the last one the page scrolls on.
+// The visible part sticks under the header while invisible steps scroll past; whichever step
+// crosses the middle of the screen picks the active quote. After the last one the page scrolls on.
 export function Testimonials({
   items,
   background,
@@ -45,8 +51,11 @@ export function Testimonials({
   return (
     <section
       aria-labelledby="testimonios"
-      className="relative"
-      style={{ height: screens(items.length * SCREENS_PER_QUOTE + 1) }}
+      className="relative h-[var(--desktop-scroll-height)] max-md:h-[var(--mobile-scroll-height)]"
+      style={responsiveHeight(
+        items.length * DESKTOP_SCREENS_PER_QUOTE + 1,
+        items.length * MOBILE_SCREENS_PER_QUOTE + 1,
+      )}
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         {items.map((t, i) => (
@@ -58,14 +67,15 @@ export function Testimonials({
             ref={(el) => {
               steps.current[i] = el;
             }}
-            style={{
-              height: screens(
-                SCREENS_PER_QUOTE +
-                  (i === 0 ? 0.5 : 0) +
-                  (i === items.length - 1 ? 0.5 : 0),
-              ),
-            }}
-            className="scroll-mt-18"
+            style={responsiveHeight(
+              DESKTOP_SCREENS_PER_QUOTE +
+                (i === 0 ? 0.5 : 0) +
+                (i === items.length - 1 ? 0.5 : 0),
+              MOBILE_SCREENS_PER_QUOTE +
+                (i === 0 ? 0.5 : 0) +
+                (i === items.length - 1 ? 0.5 : 0),
+            )}
+            className="h-[var(--desktop-scroll-height)] scroll-mt-18 max-md:h-[var(--mobile-scroll-height)]"
           />
         ))}
       </div>
@@ -78,9 +88,9 @@ export function Testimonials({
           sizes="100vw"
           className="drift -z-20 object-cover opacity-45"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-night via-night/60 to-night" />
+        <div className="absolute inset-0 -z-10 bg-linear-to-b from-night via-night/60 to-night" />
 
-        <div className="mx-auto w-full max-w-[1400px] px-5 md:px-12">
+        <div className="mx-auto w-full max-w-350 px-5 md:px-12">
           <h2
             id="testimonios"
             className="text-4xl font-black tracking-[-0.035em] md:text-6xl"
