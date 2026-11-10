@@ -117,6 +117,9 @@ export function getPage<T = Record<string, unknown>>(name: string): Page<T> {
 
 export function getSite(): Site {
   const site = JSON.parse(fs.readFileSync(path.join(ROOT, "site.json"), "utf8"));
+  // Fail the Vercel build instead of publishing blank contact details; local dev still works without them.
+  const missing = ["EMAIL", "PHONE", "ADDRESS"].filter((k) => !process.env[k]);
+  if (process.env.VERCEL && missing.length) throw new Error(`Missing env: ${missing.join(", ")}`);
   return {
     ...site,
     email: process.env.EMAIL ?? "",

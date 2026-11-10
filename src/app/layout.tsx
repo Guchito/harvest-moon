@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: { default: "Harvest Moon · DJs para bodas y fiestas en Barcelona", template: "%s · Harvest Moon" },
   description: "Agencia de DJs en Barcelona para bodas, fiestas temáticas, pool parties, fiestas electrónicas, afterworks y eventos corporativos.",
   openGraph: { type: "website", locale: "es_ES", siteName: "Harvest Moon" },
-  alternates: { canonical: "/" },
+  alternates: { canonical: "./" }, // "./" = each page's own URL; "/" would point every page at the homepage
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
