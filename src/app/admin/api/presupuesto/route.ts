@@ -467,7 +467,7 @@ function generateQuotePdf(quote: QuoteInput) {
     }
 
     doc.font("Helvetica").fontSize(9).fillColor(MUTED)
-      .text("Gracias por confiar en Harvest Moon.", MARGIN, 650, {
+      .text(`Gracias por confiar en ${site.name}.`, MARGIN, 650, {
         lineBreak: false,
       });
 

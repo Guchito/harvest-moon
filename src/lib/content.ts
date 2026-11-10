@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { marked } from "marked";
 
 const ROOT = path.join(process.cwd(), "content");
+export const SITE_URL = "https://www.harvestmoonevents.eu";
 
 export type Artist = {
   slug: string;

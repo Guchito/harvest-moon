@@ -9,7 +9,7 @@ export function ContactForm() {
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <div>
         <label htmlFor="name" className={label}>Nombre</label>
-        <input id="name" name="name" required autoComplete="name" className={field} />
+        <input id="name" name="name" required maxLength={200} autoComplete="name" className={field} />
       </div>
       <div>
         <label htmlFor="email" className={label}>Email</label>
@@ -39,7 +39,7 @@ export function ContactForm() {
       </div>
       <div className="md:col-span-2">
         <label htmlFor="message" className={label}>Cuéntanos sobre tu evento</label>
-        <textarea id="message" name="message" rows={5} required className={field} />
+        <textarea id="message" name="message" rows={5} required maxLength={5000} className={field} />
       </div>
       <label className="flex items-start gap-3 text-sm leading-relaxed text-muted-2 md:col-span-2">
         <input type="checkbox" name="privacy" required className="mt-1 size-4 shrink-0 accent-accent" />

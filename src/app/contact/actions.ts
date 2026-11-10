@@ -3,12 +3,13 @@
 import { redirect } from "next/navigation";
 import { sendMail } from "@/lib/mail";
 
-const str = (fd: FormData, k: string) => String(fd.get(k) ?? "").trim();
+// Single-line fields: newlines collapsed (name lands in the email subject), length capped.
+const str = (fd: FormData, k: string) => String(fd.get(k) ?? "").replace(/\s+/g, " ").trim().slice(0, 200);
 
 export async function submitContact(fd: FormData) {
   if (str(fd, "website")) redirect("/contact?enviado=1"); // honeypot: bots fill it, humans never see it
 
-  const name = str(fd, "name"), email = str(fd, "email"), message = str(fd, "message");
+  const name = str(fd, "name"), email = str(fd, "email"), message = String(fd.get("message") ?? "").trim();
   if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !message || message.length > 5000 || !fd.get("privacy")) {
     redirect("/contact?error=1");
   }

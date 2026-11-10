@@ -1,7 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getArtists, getPosts } from "@/lib/content";
-
-const BASE = "https://www.harvestmoonevents.eu";
+import { SITE_URL as BASE, getArtists, getPosts } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const fixed = ["", "/artistas", "/about", "/quienes-somos", "/playlists", "/blog-de-novedades", "/contact", "/terminos-y-condiciones"];

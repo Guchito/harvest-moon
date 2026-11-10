@@ -3,7 +3,7 @@ import { Archivo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { getSite } from "@/lib/content";
+import { SITE_URL, getSite } from "@/lib/content";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -15,7 +15,7 @@ const archivo = Archivo({
 
 export const metadata: Metadata = {
   // Vercel's production URL (the custom domain once attached), so share previews work before the DNS switch.
-  metadataBase: new URL(process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://www.harvestmoonevents.eu"),
+  metadataBase: new URL(process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : SITE_URL),
   title: { default: "Harvest Moon · DJs para bodas y fiestas en Barcelona", template: "%s · Harvest Moon" },
   description: "Agencia de DJs en Barcelona para bodas, fiestas temáticas, pool parties, fiestas electrónicas, afterworks y eventos corporativos.",
   openGraph: { type: "website", locale: "es_ES", siteName: "Harvest Moon" },
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     "@type": "LocalBusiness",
     name: s.name,
     description: metadata.description,
-    url: "https://www.harvestmoonevents.eu",
+    url: SITE_URL,
     email: s.email,
     telephone: s.phone,
     address: { "@type": "PostalAddress", streetAddress: s.address.split(",")[0], addressLocality: "Barcelona", addressCountry: "ES" },
