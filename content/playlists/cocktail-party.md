@@ -1,5 +1,5 @@
 ---
-title: "Cocktail Party"
+title: "Cocktail / Afterworks"
 spotify: https://open.spotify.com/playlist/2sgaBeUzbRlfGhahirhv5O
 cover: /media/playlists/cocktail-party.jpg
 styles: []

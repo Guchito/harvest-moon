@@ -1,13 +1,13 @@
 ---
 title: "Nuestra música, tu fiesta."
-subtitle: "DJs para bodas y eventos en Ibiza y Barcelona."
+subtitle: "DJs para bodas y eventos en Barcelona."
 image: /media/pages/hero-dj-re2.jpeg
 services:
   - title: Fiestas temáticas
     text: disco. rock. africana. brasilera
   - title: Bodas
     text: clásicos y contemporáneos para todos los gustos
-  - title: Pool partys
+  - title: Pool parties
     text: house. deep house. funk. disco house
   - title: Fiestas electrónicas
     text: house. tecno. electro. minimal. break beats
