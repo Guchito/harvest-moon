@@ -12,7 +12,7 @@ services:
   - title: Fiestas electrónicas
     text: house. tecno. electro. minimal. break beats
   - title: Cocktails / Afterworks
-    text: jazz. soul. bossanova. ambient.
+    text: jazz. soul. bossanova. ambient
   - title: Eventos corporativos
     text: audiovisuales
 highlights:
