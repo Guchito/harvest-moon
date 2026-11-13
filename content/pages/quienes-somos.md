@@ -6,7 +6,7 @@ image: /media/pages/rodrigo-historia.jpeg
 
 ## Un amor con 25 años de trayectoria
 
-Comienza en Argentina. A sus 15 años entra a trabajar como DJ de bodas en la empresa Repila, la más importante del rubro en su país. Así fue DJ en más de 800 bodas y fiestas empresariales.
+Comienza en Argentina. A sus 15 años entra a trabajar como DJ de bodas en la empresa Repila, la más importante del rubro en su país. Así fue DJ en más de 800 bodas, la mayoría bodas luxury, y en fiestas empresariales.
 
 Paralelamente iba comenzando su carrera como DJ de fiestas electrónicas. Llega a poner música en discotecas de toda Latinoamérica y luego haciendo giras por Europa: Berlín, París, Zúrich, Barcelona, Colonia y Madrid.
 
